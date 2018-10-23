@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Header';
-import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8080');
+import Pusher from 'pusher-js';
 
 class Slider extends Component {
     constructor(props) {
@@ -13,18 +12,17 @@ class Slider extends Component {
     }
 
     componentDidMount() {
-        socket.on('slider', (targetValue) => {
-            console.log(targetValue);
-            if (this.state.value !== targetValue) {
-                this.setState({ value: targetValue });
-                console.log("re-render");
-            }
+        const pusher = new Pusher('APP_KEY');
+        const channel = pusher.subscribe('slider');
+        channel.bind('targetValue', data => {
+          this.setState({ value: data });
         });
-    }
+      }
 
-    handleChange(e) {
-        socket.emit('subscribeToSlider', e.target.value);
-    }
+      handleChange(e) {
+        fetch("http://localhost:8080/slider", 
+                { method: "POST", body: JSON.stringify(e.target.value) });
+      }
 
     render() {
         console.log("render");
