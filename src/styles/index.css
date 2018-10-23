@@ -1,0 +1,136 @@
+.inner-main {
+  width: 300px;
+  outline: 2px solid  gray;
+  padding: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.li {
+  cursor: pointer;
+}
+
+.item:focus { 
+  outline: 2px dashed green; 
+}
+
+.line { 
+  outline: 2px dashed green; 
+}
+
+.item{
+  display: flex;
+  align-items: center;
+  /*position: relative;*/
+}
+
+.item > div:first-child{
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+.item > div:first-child{
+  padding-right: 10px;
+  font-size: 15px;
+}
+
+
+.item .icon{
+  transition: transform .5s ease, color .5s ease;
+  font-size: 40px;
+}  
+
+
+.item .icon.active{
+  transform: rotate(90deg);
+}  
+
+.item .icon.disable{
+  cursor: default;
+  color: white;
+}  
+
+.item:hover .btnCanOpen{
+  display: block;
+}
+
+.item .btn{
+  display: none; 
+  margin-right: 5px;
+  border-radius: 5px !important;
+} 
+/*
+.btn-group {
+  position: absolute; 
+  right: 0px;
+}*/
+
+.hidden {
+  display: none;
+} 
+
+.main-component {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+.inner-ul {
+  height:350px;
+  overflow: auto;
+  padding: 10px 10px 0px 20px;
+}
+/*
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 999;
+}*/
+/*
+.table {
+  margin-top: 50px;
+}*/
+
+.text {
+  white-space: pre;
+  margin-right: 10px;
+}
+
+.icon-sort {
+  cursor: pointer;
+  transition: transform .5s ease, color .5s ease;
+}  
+
+.icon-sort.active {
+  transform: rotate(180deg);
+}  
+/*
+th {
+  position: relative;
+}
+
+.icon-sort {
+  position: absolute; 
+  right: 0px;
+}*/
+.masonry-sizer,
+.masonry-item {
+  width: 20%;
+}
+
+.masonry-item {
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+}
+
+.slider {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+}
